@@ -1,12 +1,7 @@
 <template>
   <!-- <meta-board /> -->
   <div class="home">
-      <Toolbar />
       <main>
-          <!-- 左侧组件列表 -->
-          <section class="left">
-              <ComponentList />
-          </section>
           <!-- 中间画布 -->
           <section class="center">
               <div class="content" @drop="handleDrop" @dragover="handleDragOver"
@@ -42,14 +37,13 @@ import AttrList from '@/components/AttrList' // 右侧属性列表
 import AnimationList from '@/components/AnimationList' // 右侧动画列表
 import EventList from '@/components/EventList' // 右侧事件列表
 import componentList from '@/custom-component/component-list' // 左侧列表数据
-import Toolbar from '@/components/Toolbar'
 import { deepCopy } from '@/utils/utils'
 import { mapState } from 'vuex'
 import generateID from '@/utils/generateID'
 import { listenGlobalKeyDown } from '@/utils/shortcutKey'
 
 export default {
-    components: { Editor, ComponentList, AttrList, AnimationList, EventList, Toolbar },
+    components: { Editor, ComponentList, AttrList, AnimationList, EventList },
     data() {
         return {
             activeName: 'attr',
@@ -151,7 +145,6 @@ export default {
         }
 
         .center {
-            margin-left: 200px;
             margin-right: 262px;
             background: #f5f5f5;
             height: 100%;

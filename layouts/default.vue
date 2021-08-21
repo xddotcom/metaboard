@@ -5,7 +5,7 @@
     </el-aside>
     <el-container>
       <el-header class="app__header">
-        <site-header />
+        <toolbar />
       </el-header>
       <el-main class="app__main">
         <nuxt />
@@ -19,12 +19,14 @@
 </template>
 
 <script>
+import Toolbar from '@/components/Toolbar'
 import SideBar from '@/components/SideBar'
 import SiteHeader from '@/components/SiteHeader'
 import ImageSearch from '@/components/ImageSearch'
 
 export default {
   components: {
+    Toolbar,
     SideBar,
     SiteHeader,
     ImageSearch,
