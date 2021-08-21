@@ -3,7 +3,7 @@
     <el-tooltip
       v-for="(item, index) in componentList" :key="index" draggable :data-index="index"
       class="item" effect="dark" :content="item.label" placement="right">
-      <i class="icon__icon" :class="'icon-' + item.icon"></i>
+      <i class="icon__icon" :class="'icon-' + item.icon" @click="() => onClick(item)"></i>
     </el-tooltip>
   </div>
 </template>
@@ -21,6 +21,12 @@ export default {
     handleDragStart(e) {
       e.dataTransfer.setData('index', e.target.dataset.index)
     },
+    onClick(item) {
+      console.log(item)
+      if (item.component === 'v-add') {
+        this.$store.commit('toggleImageSearch')
+      }
+    }
   },
 }
 </script>

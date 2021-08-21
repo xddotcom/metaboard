@@ -11,11 +11,11 @@
         <nuxt />
       </el-main>
     </el-container>
-    <!--
-    <div class="app__float">
+
+    <div class="app__float" v-show="$store.state.showImageSearch">
       <image-search/>
     </div>
-    -->
+
     <div class="toolbar-container">
       <toolbar />
     </div>
