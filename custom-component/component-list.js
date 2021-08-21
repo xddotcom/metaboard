@@ -50,7 +50,7 @@ const list = [
         },
     },
     {
-        component: 'Picture', 
+        component: 'v-picture',
         label: '图片', 
         icon: 'tupian',
         propValue: require('@/assets/title.jpg'),
