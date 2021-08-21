@@ -31,6 +31,7 @@
 </template>
 
 <script>
+import io from 'socket.io-client'
 import Editor from '@/components/Editor/index'
 import ComponentList from '@/components/ComponentList' // 左侧列表组件
 import AttrList from '@/components/AttrList' // 右侧属性列表
