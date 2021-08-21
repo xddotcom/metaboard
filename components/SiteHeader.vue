@@ -50,8 +50,10 @@ header {
 .logo {
   width: 60px;
   height: 38px;
-  background-color: orange;
   margin-right: 10px;
+  background-image: url('static/logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 .title {
   font-size: 16px;
