@@ -106,7 +106,6 @@ export default {
 
 <style lang="scss">
 .home {
-   height: 100%;
    background: #fff;
    .sidebar {
       position: fixed;
@@ -121,7 +120,7 @@ export default {
       }
    }
    main {
-      height: calc(100% - 58px);
+      height: calc(100vh - 60px);
       margin-left: 72px;
       width: calc(100% - 72px);
       position: relative;

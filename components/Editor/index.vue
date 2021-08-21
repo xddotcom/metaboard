@@ -29,7 +29,6 @@
         :propValue="item.propValue"
         :element="item"
         @input="handleInput"
-        @change="handleChangeText"
         :id="'component' + item.id"
       />
 
@@ -40,7 +39,6 @@
         :style="getComponentStyle(item.style)"
         :propValue="item.propValue"
         @input="handleInput"
-        @change="handleChangeText"
         :element="item"
         :id="'component' + item.id"
       />
@@ -100,10 +98,18 @@ export default {
     eventBus.$on('hideArea', () => {
       this.hideArea()
     })
+    this.initCanvasSize()
   },
   methods: {
     changeStyleWithScale,
-
+    initCanvasSize() {
+      const $main = document.querySelector('main')
+      this.$store.commit('setCanvasStyle', {
+        width: $main.clientWidth,
+        height: $main.clientHeight,
+        scale: 100
+      })
+    },
     handleMouseDown(e) {
       // 如果没有选中组件 在画布上点击时需要调用 e.preventDefault() 防止触发 drop 事件
       if (!this.curComponent || (this.curComponent.component != 'v-text' && this.curComponent.component != 'rect-shape')) {
@@ -304,6 +310,8 @@ export default {
   position: relative;
   background: #fff;
   margin: auto;
+  width: 100%;
+  position: 100%;
 
   .lock {
     opacity: .5;
