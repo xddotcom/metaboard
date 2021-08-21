@@ -1,8 +1,11 @@
 @import './vars';
-
 @import "base/scaffolding";
 @import "base/typography";
 @import "base/utilities";
-
-@import './icons.scss';
+@import './icons';
 @import './overrides';
+
+
+#app {
+  overflow: hidden;
+}
