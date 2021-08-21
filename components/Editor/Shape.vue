@@ -200,7 +200,7 @@ export default {
 
         handleMouseDownOnShape(e) {
             this.$store.commit('setClickComponentStatus', true)
-            if (this.element.component != 'v-text' && this.element.component != 'rect-shape') {
+            if (this.element.component != 'v-text' && this.element.component != 'rect-shape' && this.element.component != 'v-iframe') {
                 e.preventDefault()
             }
 

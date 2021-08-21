@@ -94,8 +94,8 @@ const list = [
     {
         component: 'v-iframe',
         label: '内嵌窗口',
-        icon: 'iframe',
-        propValue: 'https://www.heidianer.com/',
+        icon: 'style',
+        propValue: 'https://uirush.net/',
         style: {
             width: 375,
             height: 640,
