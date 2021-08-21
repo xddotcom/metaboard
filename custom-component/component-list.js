@@ -61,9 +61,17 @@ const list = [
         },
     },
     {
+        component: 'v-add',
+        label: '添加',
+        icon: 'add',
+        style: {
+
+        },
+    },
+    {
         component: 'v-color',
         label: '色卡',
-        icon: 'color',
+        icon: 'board',
         propValue: '',
         style: {
             width: 180,
