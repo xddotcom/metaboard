@@ -38,6 +38,7 @@
                 :style="getComponentStyle(item.style)"
                 :propValue="item.propValue"
                 @input="handleInput"
+                @change="handleChangeText"
                 :element="item"
                 :id="'component' + item.id"
             />
@@ -289,6 +290,9 @@ export default {
             const newHeight = (text.split('<br>').length - 1) * lineHeight * fontSize
             return height > newHeight ? height : newHeight
         },
+        handleChangeText(element) {
+            this.$store.commit('updateComponentData', element)
+        }
     },
 }
 </script>

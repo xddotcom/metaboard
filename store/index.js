@@ -59,7 +59,7 @@ export default {
             state.curComponent = component
             state.curComponentIndex = index
         },
-        
+
         setShapeStyle({ curComponent }, { top, left, width, height, rotate }) {
             if (top) curComponent.style.top = top
             if (left) curComponent.style.left = left
@@ -75,7 +75,18 @@ export default {
         setComponentData(state, componentData = []) {
             Vue.set(state, 'componentData', componentData)
         },
-
+        updateComponentData(state, payload) {
+            if (typeof payload.id === 'undefined') {
+                state.componentData.push({...payload})
+                return
+            }
+            const componentIndex = state.componentData.findIndex((item) => item.id === payload.id)
+            if (componentIndex >= 0) {
+                state.componentData[componentIndex] = {...payload}
+            } else {
+                state.componentData.push({...payload})
+            }
+        },
         addComponent(state, { component, index }) {
             if (index !== undefined) {
                 state.componentData.splice(index, 0, component)
@@ -88,12 +99,12 @@ export default {
             if (index === undefined) {
                 index = state.curComponentIndex
             }
-            
+
             if (index == state.curComponentIndex) {
                 state.curComponentIndex = null
                 state.curComponent = null
             }
-            
+
             state.componentData.splice(index, 1)
         },
     },
