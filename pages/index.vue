@@ -10,7 +10,7 @@
               </div>
           </section>
           <!-- 右侧属性列表 -->
-          <section class="right">
+          <!-- <section class="right">
               <el-tabs v-model="activeName">
                   <el-tab-pane label="属性" name="attr">
                       <AttrList v-if="curComponent" />
@@ -25,7 +25,7 @@
                       <p v-else class="placeholder">请选择组件</p>
                   </el-tab-pane>
               </el-tabs>
-          </section>
+          </section> -->
       </main>
   </div>
 </template>

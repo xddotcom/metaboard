@@ -1,16 +1,15 @@
 <template>
   <el-container class="app">
-    <el-aside class="app__aside">
-      <side-bar />
-    </el-aside>
+    <el-header class="app__header">
+      <toolbar />
+    </el-header>
     <el-container>
-      <el-header class="app__header">
-        <toolbar />
-      </el-header>
+      <el-aside class="app__aside">
+        <side-bar />
+      </el-aside>
       <el-main class="app__main">
         <nuxt />
       </el-main>
-      <!-- <el-footer>Footer</el-footer> -->
     </el-container>
     <div class="app__float">
       <image-search/>
