@@ -62,7 +62,7 @@ const list = [
     },
     {
         component: 'rect-shape',
-        label: '矩形',
+        label: '绘制',
         propValue: '&nbsp;',
         icon: 'shape',
         style: {
@@ -79,6 +79,17 @@ const list = [
             backgroundColor: '',
             borderStyle: 'solid',
             verticalAlign: 'middle',
+        },
+    },
+    {
+        component: 'v-iframe',
+        label: '内嵌窗口',
+        icon: 'iframe',
+        propValue: 'https://www.heidianer.com/',
+        style: {
+            width: 375,
+            height: 640,
+            borderRadius: ''
         },
     },
 ]

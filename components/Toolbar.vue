@@ -21,13 +21,13 @@
         <input v-model="canvasStyleData.height">
       </div> -->
       <div class="toolbar__group">
-        <div class="toolbar__item toolbar__btn"><i class="el-icon-help"></i></div>
-        <div class="toolbar__item toolbar__btn"><i class="el-icon-full-screen"></i></div>
+        <div class="toolbar__item toolbar__btn"><i class="icon-move"></i></div>
+        <div class="toolbar__item toolbar__btn"><i class="icon-fullscreen"></i></div>
       </div>
       <div class="toolbar__group">
-        <div class="toolbar__item toolbar__btn" @click="() => handleScale(-10)"><i class="el-icon-zoom-out"></i></div>
+        <div class="toolbar__item toolbar__btn" @click="() => handleScale(-10)"><i class="icon-zoom-out"></i></div>
         <div class="toolbar__item toolbar__input"><input v-model="scale" @input="handleScaleChange"> <small>%</small></div>
-        <div class="toolbar__item toolbar__btn" @click="() => handleScale(10)"><i class="el-icon-zoom-in"></i></div>
+        <div class="toolbar__item toolbar__btn" @click="() => handleScale(10)"><i class="icon-zoom-in"></i></div>
       </div>
     </div>
     <!-- 预览 -->
@@ -232,6 +232,7 @@ export default {
 .toolbar__btn {
   font-size: 18px;
   cursor: pointer;
+  line-height: 1;
 }
 .toolbar__input {
   input {
@@ -240,6 +241,7 @@ export default {
     box-shadow: none;
     width: 30px;
     text-align: center;
+    font-size: 16px;
   }
 }
 </style>
