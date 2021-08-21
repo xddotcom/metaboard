@@ -72,7 +72,7 @@ const list = [
         component: 'v-color',
         label: '色卡',
         icon: 'board',
-        propValue: '',
+        propValue: '#59d6b7',
         style: {
             width: 180,
             height: 180,
