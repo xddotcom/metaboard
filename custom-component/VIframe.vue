@@ -49,7 +49,7 @@ iframe {
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0);
   // &::after {
   //   content: '双击以开启iframe交互';
   //   position: absolute;
