@@ -96,9 +96,12 @@ export default {
         })
       }
       this.canEdit = false
-      this.$emit('change', this.cachedElement)
+      // this.$emit('change', this.cachedElement)
+      this.handleChange()
     },
-
+    handleChange() {
+      this.$store.commit('updateComponentData', this.cachedElement)
+    },
     setEdit() {
       if (this.element.isLock) return
 
