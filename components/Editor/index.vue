@@ -287,6 +287,10 @@ export default {
     handleInput(element, value) {
       // 根据文本组件高度调整 shape 高度
       this.$store.commit('setShapeStyle', { height: this.getTextareaHeight(element, value) })
+      this.$store.commit('updateComponentData', {
+        ...element,
+        propValue: value
+      })
     },
 
     getTextareaHeight(element, text) {
