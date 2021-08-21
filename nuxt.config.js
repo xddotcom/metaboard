@@ -29,7 +29,8 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '@/plugins/element-ui',
-    '@/plugins/custom-component'
+    '@/plugins/custom-component',
+    '@/plugins/dangerous-store'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

@@ -1,4 +1,4 @@
-import store from '@/store/index'
+import { dangerousStore } from '@/plugins/dangerous-store'
 import { deepCopy } from '@/utils/utils'
 
 export default {
@@ -10,14 +10,14 @@ export default {
         undo(state) {
             if (state.snapshotIndex >= 0) {
                 state.snapshotIndex--
-                store.commit('setComponentData', deepCopy(state.snapshotData[state.snapshotIndex]))
+                dangerousStore.store.commit('setComponentData', deepCopy(state.snapshotData[state.snapshotIndex]))
             }
         },
 
         redo(state) {
             if (state.snapshotIndex < state.snapshotData.length - 1) {
                 state.snapshotIndex++
-                store.commit('setComponentData', deepCopy(state.snapshotData[state.snapshotIndex]))
+                dangerousStore.store.commit('setComponentData', deepCopy(state.snapshotData[state.snapshotIndex]))
             }
         },
 

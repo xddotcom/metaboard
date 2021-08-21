@@ -1,4 +1,4 @@
-import store from '@/store/index'
+import { dangerousStore } from '@/plugins/dangerous-store'
 import toast from '@/utils/toast'
 import generateID from '@/utils/generateID'
 import { deepCopy } from '@/utils/utils'
@@ -36,7 +36,7 @@ export default {
             }
             
             data.id = generateID()
-            store.commit('addComponent', { component: deepCopy(data) })
+            dangerousStore.store.commit('addComponent', { component: deepCopy(data) })
             if (state.isCut) {
                 state.copyData = null
             }
@@ -52,15 +52,15 @@ export default {
                 const data = deepCopy(state.copyData.data)
                 const index = state.copyData.index
                 data.id = generateID()
-                store.commit('addComponent', { component: data, index })
+                dangerousStore.store.commit('addComponent', { component: data, index })
                 if (state.curComponentIndex >= index) {
                     // 如果当前组件索引大于等于插入索引，需要加一，因为当前组件往后移了一位
                     state.curComponentIndex++
                 }
             }
 
-            store.commit('copy')
-            store.commit('deleteComponent')
+            dangerousStore.store.commit('copy')
+            dangerousStore.store.commit('deleteComponent')
             state.isCut = true
         },
     },

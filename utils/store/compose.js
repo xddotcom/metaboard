@@ -1,4 +1,4 @@
-import store from '@/store/index'
+import { dangerousStore } from '@/plugins/dangerous-store'
 import generateID from '@/utils/generateID'
 import eventBus from '@/utils/eventBus'
 import decomposeComponent from '@/utils/decomposeComponent'
@@ -39,14 +39,14 @@ export default {
                     const subComponents = component.propValue
                     const editorRect = $('#editor').getBoundingClientRect()
 
-                    store.commit('deleteComponent')
+                    dangerousStore.store.commit('deleteComponent')
                     subComponents.forEach(component => {
                         decomposeComponent(component, editorRect, parentStyle)
-                        store.commit('addComponent', { component })
+                        dangerousStore.store.commit('addComponent', { component })
                     })
 
                     components.push(...component.propValue)
-                    store.commit('batchDeleteComponent', component.propValue)
+                    dangerousStore.store.commit('batchDeleteComponent', component.propValue)
                 }
             })
 
@@ -61,14 +61,14 @@ export default {
                 propValue: components,
             }
             createGroupStyle(groupComponent)
-            store.commit('addComponent', {
+            dangerousStore.store.commit('addComponent', {
                 component: groupComponent,
             })
 
             eventBus.$emit('hideArea')
 
-            store.commit('batchDeleteComponent', areaData.components)
-            store.commit('setCurComponent', {
+            dangerousStore.store.commit('batchDeleteComponent', areaData.components)
+            dangerousStore.store.commit('setCurComponent', {
                 component: componentData[componentData.length - 1],
                 index: componentData.length - 1,
             })
@@ -93,10 +93,10 @@ export default {
             const components = curComponent.propValue
             const editorRect = $('#editor').getBoundingClientRect()
 
-            store.commit('deleteComponent')
+            dangerousStore.store.commit('deleteComponent')
             components.forEach(component => {
                 decomposeComponent(component, editorRect, parentStyle)
-                store.commit('addComponent', { component })
+                dangerousStore.store.commit('addComponent', { component })
             })
         },
     },

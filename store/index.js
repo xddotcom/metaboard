@@ -1,3 +1,5 @@
+import Vue from 'vue'
+
 import animation from '@/utils/store/animation'
 import compose from '@/utils/store/compose'
 import contextmenu from '@/utils/store/contextmenu'

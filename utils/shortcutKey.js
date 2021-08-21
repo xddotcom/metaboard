@@ -1,4 +1,4 @@
-import store from '@/store'
+import { dangerousStore } from '@/plugins/dangerous-store'
 import eventBus from '@/utils/eventBus'
 
 const ctrlKey = 17, 
@@ -55,12 +55,12 @@ let isCtrlDown = false
 // 全局监听按键操作并执行相应命令
 export function listenGlobalKeyDown() {
     window.onkeydown = (e) => {
-        const { curComponent } = store.state
+        const { curComponent } = dangerousStore.store.state
         if (e.keyCode == ctrlKey) {
             isCtrlDown = true
         } else if (e.keyCode == deleteKey && curComponent) {
-            store.commit('deleteComponent')
-            store.commit('recordSnapshot')
+            dangerousStore.store.commit('deleteComponent')
+            dangerousStore.store.commit('recordSnapshot')
         } else if (isCtrlDown) {
             if (!curComponent || !curComponent.isLock) {
                 e.preventDefault()
@@ -80,38 +80,38 @@ export function listenGlobalKeyDown() {
 }
 
 function copy() {
-    store.commit('copy')
+    dangerousStore.store.commit('copy')
 }
 
 function paste() {
-    store.commit('paste')
-    store.commit('recordSnapshot')
+    dangerousStore.store.commit('paste')
+    dangerousStore.store.commit('recordSnapshot')
 }
 
 function cut() {
-    store.commit('cut')
+    dangerousStore.store.commit('cut')
 }
 
 function redo() {
-    store.commit('redo')
+    dangerousStore.store.commit('redo')
 }
 
 function undo() {
-    store.commit('undo')
+    dangerousStore.store.commit('undo')
 }
 
 function compose() {
-    if (store.state.areaData.components.length) {
-        store.commit('compose')
-        store.commit('recordSnapshot')
+    if (dangerousStore.store.state.areaData.components.length) {
+        dangerousStore.store.commit('compose')
+        dangerousStore.store.commit('recordSnapshot')
     }
 }
 
 function decompose() {
-    const curComponent = store.state.curComponent
+    const curComponent = dangerousStore.store.state.curComponent
     if (curComponent && !curComponent.isLock && curComponent.component == 'Group') {
-        store.commit('decompose')
-        store.commit('recordSnapshot')
+        dangerousStore.store.commit('decompose')
+        dangerousStore.store.commit('recordSnapshot')
     }
 }
 
@@ -124,9 +124,9 @@ function preview() {
 }
 
 function deleteComponent() {
-    if (store.state.curComponent) {
-        store.commit('deleteComponent')
-        store.commit('recordSnapshot')
+    if (dangerousStore.store.state.curComponent) {
+        dangerousStore.store.commit('deleteComponent')
+        dangerousStore.store.commit('recordSnapshot')
     }
 }
 
@@ -135,9 +135,9 @@ function clearCanvas() {
 }
 
 function lock() {
-    store.commit('lock')
+    dangerousStore.store.commit('lock')
 }
 
 function unlock() {
-    store.commit('unlock')
+    dangerousStore.store.commit('unlock')
 }
