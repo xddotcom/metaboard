@@ -80,14 +80,13 @@ export default {
         },
         updateComponentData(state, payload) {
             if (typeof payload.id === 'undefined') {
-                state.componentData.push({...payload})
                 return
             }
             const componentIndex = state.componentData.findIndex((item) => item.id === payload.id)
             if (componentIndex >= 0) {
-                state.componentData[componentIndex] = {...payload}
-            } else {
-                state.componentData.push({...payload})
+                // TODO 在更新VPicture 的时候响应式无效, 改用 Vue.set 来触发
+                // state.componentData[componentIndex] = {...payload}
+                Vue.set(state.componentData, componentIndex, {...payload})
             }
         },
         addComponent(state, { component, index }) {
