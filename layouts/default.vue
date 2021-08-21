@@ -12,16 +12,22 @@
       </el-main>
       <!-- <el-footer>Footer</el-footer> -->
     </el-container>
+    <div class="app__float">
+      <image-search/>
+    </div>
   </el-container>
 </template>
 
 <script>
 import SideBar from '@/components/SideBar'
 import SiteHeader from '@/components/SiteHeader'
+import ImageSearch from '@/components/ImageSearch'
+
 export default {
   components: {
     SideBar,
     SiteHeader,
+    ImageSearch,
   },
   data() {
     return {}
@@ -30,8 +36,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.app {}
+.app {
+  position: relative;
+}
 .app__header {}
 .app__aside {}
 .app__main {}
+.app__float {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
 </style>
