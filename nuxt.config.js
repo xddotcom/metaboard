@@ -24,6 +24,7 @@ export default {
     '@/assets/reset.css',
     '@/assets/animate.css',
     'element-ui/lib/theme-chalk/index.css',
+    '@/assets/styles/main.scss'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins

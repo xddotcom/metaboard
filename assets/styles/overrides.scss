@@ -1,0 +1,11 @@
+.el-button--small {
+  padding-top: 11px;
+  padding-bottom: 11px;
+  &.is-circle {
+    padding: 11px;
+  }
+  &.is-round {
+    padding-top: 11px;
+    padding-bottom: 11px;
+  }
+}
