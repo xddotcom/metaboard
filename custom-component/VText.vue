@@ -21,6 +21,10 @@ export default {
     element: {
       type: Object,
     },
+    propValue: {
+      type: String,
+      default: ''
+    }
   },
   data() {
     return {

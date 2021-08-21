@@ -1,33 +1,18 @@
 <template>
-  <!-- <meta-board /> -->
-  <div class="home">
-     <main>
-        <!-- 中间画布 -->
-        <section class="center">
-           <div class="content" @drop="handleDrop" @dragover="handleDragOver"
-           @mousedown="handleMouseDown" @mouseup="deselectCurComponent">
-              <Editor />
-           </div>
-        </section>
-        <!-- 右侧属性列表 -->
-        <!-- <section class="right">
-           <el-tabs v-model="activeName">
-              <el-tab-pane label="属性" name="attr">
-                 <AttrList v-if="curComponent" />
-                 <p v-else class="placeholder">请选择组件</p>
-              </el-tab-pane>
-              <el-tab-pane label="动画" name="animation">
-                 <AnimationList v-if="curComponent" />
-                 <p v-else class="placeholder">请选择组件</p>
-              </el-tab-pane>
-              <el-tab-pane label="事件" name="events">
-                 <EventList v-if="curComponent" />
-                 <p v-else class="placeholder">请选择组件</p>
-              </el-tab-pane>
-           </el-tabs>
-        </section> -->
-     </main>
-  </div>
+   <div class="home">
+      <div class="sidebar">
+         <component-list />
+      </div>
+      <main>
+      <!-- 中间画布 -->
+         <section class="center">
+            <div class="content" @drop="handleDrop" @dragover="handleDragOver"
+            @mousedown="handleMouseDown" @mouseup="deselectCurComponent">
+               <Editor />
+            </div>
+         </section>
+      </main>
+   </div>
 </template>
 
 <script>
@@ -121,11 +106,24 @@ export default {
 
 <style lang="scss">
 .home {
-   height: 100vh;
+   height: 100%;
    background: #fff;
-
+   .sidebar {
+      position: fixed;
+      top: 58px;
+      left: 0;
+      padding: 24px 8px;
+      bottom: 0;
+      overflow: auto;
+      background-color: #fff;
+      &::-webkit-scrollbar {
+         width: 0;
+      }
+   }
    main {
-      height: calc(100% - 64px);
+      height: calc(100% - 58px);
+      margin-left: 72px;
+      width: calc(100% - 72px);
       position: relative;
 
       .left {
@@ -149,8 +147,6 @@ export default {
          background: #f5f5f5;
          height: 100%;
          overflow: auto;
-         padding: 20px;
-
          .content {
             width: 100%;
             height: 100%;

@@ -1,6 +1,6 @@
 // 公共样式
 export const commonStyle = {
-    rotate: 0, 
+    rotate: 0,
     opacity: 1,
 }
 
@@ -15,9 +15,9 @@ export const commonAttr = {
 const list = [
     {
         component: 'v-text',
-        label: '文字',
+        label: '笔记',
         propValue: '双击编辑文字',
-        icon: 'wenben',
+        icon: 'note',
         style: {
             width: 200,
             height: 22,
@@ -29,30 +29,30 @@ const list = [
             color: '',
         },
     },
-    {
-        component: 'v-button', 
-        label: '按钮', 
-        propValue: '按钮',
-        icon: 'button',
-        style: {
-            width: 100,
-            height: 34,
-            borderWidth: 1,
-            borderColor: '',
-            borderRadius: '',
-            fontSize: 14,
-            fontWeight: 500,
-            lineHeight: '',
-            letterSpacing: 0,
-            textAlign: '',
-            color: '',
-            backgroundColor: '',
-        },
-    },
+    // {
+    //     component: 'v-button',
+    //     label: '按钮',
+    //     propValue: '按钮',
+    //     icon: 'button',
+    //     style: {
+    //         width: 100,
+    //         height: 34,
+    //         borderWidth: 1,
+    //         borderColor: '',
+    //         borderRadius: '',
+    //         fontSize: 14,
+    //         fontWeight: 500,
+    //         lineHeight: '',
+    //         letterSpacing: 0,
+    //         textAlign: '',
+    //         color: '',
+    //         backgroundColor: '',
+    //     },
+    // },
     {
         component: 'v-picture',
-        label: '图片', 
-        icon: 'tupian',
+        label: '图片',
+        icon: 'upload',
         propValue: require('@/assets/title.jpg'),
         style: {
             width: 300,
@@ -64,7 +64,7 @@ const list = [
         component: 'rect-shape',
         label: '矩形',
         propValue: '&nbsp;',
-        icon: 'juxing',
+        icon: 'shape',
         style: {
             width: 200,
             height: 200,

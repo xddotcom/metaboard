@@ -4,9 +4,9 @@
       <site-header />
     </el-header>
     <el-container>
-      <el-aside class="app__aside">
+      <!-- <el-aside class="app__aside">
         <side-bar />
-      </el-aside>
+      </el-aside> -->
       <el-main class="app__main">
         <nuxt />
       </el-main>
