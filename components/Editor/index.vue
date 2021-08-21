@@ -110,7 +110,7 @@ export default {
             this.hideArea()
 
             // 获取编辑器的位移信息，每次点击时都需要获取一次。主要是为了方便开发时调试用。
-            const rectInfo = this.editor.getBoundingClientRect()
+            const rectInfo = $('#editor').getBoundingClientRect()
             this.editorX = rectInfo.x
             this.editorY = rectInfo.y
 

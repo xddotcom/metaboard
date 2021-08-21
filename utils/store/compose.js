@@ -17,11 +17,11 @@ export default {
             },
             components: [],
         },
-        editor: null,
+        // editor: null,
     },
     mutations: {
         getEditor(state) {
-            state.editor = $('#editor')
+            // state.editor = $('#editor')
         },
 
         setAreaData(state, data) {
@@ -37,7 +37,7 @@ export default {
                     // 如果要组合的组件中，已经存在组合数据，则需要提前拆分
                     const parentStyle = { ...component.style }
                     const subComponents = component.propValue
-                    const editorRect = editor.getBoundingClientRect()
+                    const editorRect = $('#editor').getBoundingClientRect()
 
                     store.commit('deleteComponent')
                     subComponents.forEach(component => {
@@ -91,7 +91,7 @@ export default {
         decompose({ curComponent, editor }) {
             const parentStyle = { ...curComponent.style }
             const components = curComponent.propValue
-            const editorRect = editor.getBoundingClientRect()
+            const editorRect = $('#editor').getBoundingClientRect()
 
             store.commit('deleteComponent')
             components.forEach(component => {

@@ -19,6 +19,7 @@ import runAnimation from '@/utils/runAnimation'
 import { mapState } from 'vuex'
 import calculateComponentPositonAndSize from '@/utils/calculateComponentPositonAndSize'
 import { mod360 } from '@/utils/translate'
+import { $ } from '@/utils/utils'
 
 export default {
     props: {
@@ -274,7 +275,7 @@ export default {
             }
 
             // 获取画布位移信息
-            const editorRectInfo = this.editor.getBoundingClientRect()
+            const editorRectInfo = $('#editor').getBoundingClientRect()
 
             // 获取 point 与实际拖动基准点的差值 @justJokee
             // fix https://github.com/woai3c/visual-drag-demo/issues/26#issue-937686285
