@@ -157,7 +157,7 @@ export default {
                             key,
                             value: rotate != 0 ? this.translatecurComponentShift(key, condition, curComponentStyle) : condition.dragShift,
                         })
-
+                        if (!condition.lineNode) return
                         condition.lineNode.style[key] = `${condition.lineShift}px`
                         needToShow.push(condition.line)
                     })
