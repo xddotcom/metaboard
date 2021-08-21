@@ -43,7 +43,16 @@ export default {
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    // baseURL: '/', // use env API_URL to override
+    browserBaseURL: '/', // use env API_URL_BROWSER to override
+    credentials: false  // cross-site Access-Control requests doesn't need to be made using credentials
+  },
+
+  // API server
+  serverMiddleware: [
+    { path: '/api', handler: '@/server-middleware/index.js' },
+  ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
