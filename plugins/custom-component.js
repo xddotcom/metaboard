@@ -13,14 +13,16 @@ import Vue from 'vue'
 // })
 
 
-import Picture from '@/custom-component/Picture'
+import VPicture from '@/custom-component/VPicture'
+import VColor from '@/custom-component/VColor'
 import VText from '@/custom-component/VText'
 import VButton from '@/custom-component/VButton'
 import Group from '@/custom-component/Group'
 import RectShape from '@/custom-component/RectShape'
 
-Vue.component('v-picture', Picture)
+Vue.component('v-picture', VPicture)
 Vue.component('v-text', VText)
 Vue.component('v-button', VButton)
+Vue.component('v-color', VColor)
 Vue.component('group', Group)
 Vue.component('rect-shape', RectShape)

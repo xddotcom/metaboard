@@ -61,6 +61,16 @@ const list = [
         },
     },
     {
+        component: 'v-color',
+        label: '色卡',
+        icon: 'color',
+        propValue: '',
+        style: {
+            width: 180,
+            height: 180,
+        },
+    },
+    {
         component: 'rect-shape',
         label: '绘制',
         propValue: '&nbsp;',

@@ -11,9 +11,11 @@
         <nuxt />
       </el-main>
     </el-container>
+    <!--
     <div class="app__float">
       <image-search/>
     </div>
+    -->
     <div class="toolbar-container">
       <toolbar />
     </div>
