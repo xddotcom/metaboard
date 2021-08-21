@@ -54,8 +54,8 @@ export default {
 .app__main {}
 .app__float {
   position: absolute;
-  right: 20px;
-  bottom: 20px;
+  left: 84px;
+  top: 84px;
 }
 .el-main,
 .el-header {
