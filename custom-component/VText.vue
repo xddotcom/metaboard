@@ -50,6 +50,10 @@ export default {
   methods: {
     handleInput(e) {
       this.$emit('input', this.element, e.target.innerHTML)
+      this.$store.commit('updateComponentData', {
+        ...this.element,
+        propValue: e.target.innerHTML
+      })
     },
 
     handleKeydown(e) {
@@ -82,6 +86,10 @@ export default {
         document.execCommand('insertText', false, text)
       }
       this.$emit('input', this.element, e.target.innerHTML)
+      this.$store.commit('updateComponentData', {
+        ...this.element,
+        propValue: e.target.innerHTML
+      })
     },
 
     handleBlur(e) {
@@ -96,11 +104,6 @@ export default {
         })
       }
       this.canEdit = false
-      // this.$emit('change', this.cachedElement)
-      this.handleChange()
-    },
-    handleChange() {
-      this.$store.commit('updateComponentData', this.cachedElement)
     },
     setEdit() {
       if (this.element.isLock) return
