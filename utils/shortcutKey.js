@@ -1,7 +1,7 @@
 import { dangerousStore } from '@/plugins/dangerous-store'
 import eventBus from '@/utils/eventBus'
 
-const ctrlKey = 17, 
+const ctrlKey = 17,
     vKey = 86, // 粘贴
     cKey = 67, // 复制
     xKey = 88, // 剪切
@@ -19,6 +19,7 @@ const ctrlKey = 17,
     pKey = 80, // 预览
     dKey = 68, // 删除
     deleteKey = 46, // 删除
+    backSpaceKey = 8,  // 退格
     eKey = 69 // 清空画布
 
 export const keycodes = [66, 67, 68, 69, 71, 76, 80, 83, 85, 86, 88, 89, 90]
@@ -58,7 +59,7 @@ export function listenGlobalKeyDown() {
         const { curComponent } = dangerousStore.store.state
         if (e.keyCode == ctrlKey) {
             isCtrlDown = true
-        } else if (e.keyCode == deleteKey && curComponent) {
+        } else if ((e.keyCode == deleteKey || e.keyCode === backSpaceKey) && curComponent) {
             dangerousStore.store.commit('deleteComponent')
             dangerousStore.store.commit('recordSnapshot')
         } else if (isCtrlDown) {

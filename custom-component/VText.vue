@@ -63,6 +63,8 @@ export default {
         e.stopPropagation()
       } else if (e.keyCode == 46) { // deleteKey
         e.stopPropagation()
+      } else if (e.keyCode === 8 && this.canEdit) {
+        e.stopPropagation()
       }
     },
 
