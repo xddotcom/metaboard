@@ -48,8 +48,8 @@ header {
   align-items: center;
 }
 .logo {
-  width: 60px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   margin-right: 10px;
   background-image: url('static/logo.png');
   background-size: contain;
