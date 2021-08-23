@@ -7,7 +7,7 @@
     <div class="header__right">
       <el-button class="header__btn" icon="el-icon-phone-outline" circle size="small"></el-button>
       <el-avatar class="header__btn" :size="36" :src="userData.avatar || defaultAvatar"></el-avatar>
-      <el-button class="header__btn" type="primary" round size="small">分享</el-button>
+      <el-button class="header__btn btn" type="primary" round size="small">分享</el-button>
     </div>
   </header>
 </template>

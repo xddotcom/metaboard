@@ -1,0 +1,12 @@
+.btn {
+  min-width: 80px;
+  padding: 12px;
+  background-color: #000;
+  border: none;
+  &:hover, &:active {
+    background-color: #262626;
+  }
+  &:focus {
+    background-color: #000;
+  }
+}
