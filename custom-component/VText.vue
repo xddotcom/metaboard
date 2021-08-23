@@ -32,7 +32,7 @@ export default {
       // ctrlKey: 17,
       ctrlKey: navigator.platform.toUpperCase().indexOf('MAC') >= 0 ? 91 : 17,
       isCtrlDown: false,
-      cachedElement: {}
+      cachedElement: {...this.element}
     }
   },
   computed: {
@@ -40,19 +40,12 @@ export default {
       'editMode',
     ]),
   },
-  watch: {
-    element: {
-      handler(val) {
-        this.cachedElement = {...val}
-      },
-      immediate: true
-    }
-  },
   methods: {
     handleInput(e) {
       this.$emit('input', this.element, e.target.innerHTML)
+      // this.cachedElement.propValue = e.target.innerHTML
       this.$store.commit('updateComponentData', {
-        ...this.element,
+        ...this.cachedElement,
         propValue: e.target.innerHTML
       })
     },
