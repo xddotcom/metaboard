@@ -25,8 +25,23 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-add:before {
+.icon-color:before {
   content: "\e90f";
+}
+.icon-link:before {
+  content: "\e912";
+}
+.icon-arrow-line:before {
+  content: "\e913";
+}
+.icon-template:before {
+  content: "\e914";
+}
+.icon-todo:before {
+  content: "\e915";
+}
+.icon-add:before {
+  content: "\e916";
 }
 .icon-upload:before {
   content: "\e901";
