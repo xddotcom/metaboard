@@ -25,6 +25,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-upload:before {
+  content: "\e901";
+}
 .icon-sparks:before {
   content: "\e90c";
 }
@@ -51,9 +54,6 @@
 }
 .icon-add:before {
   content: "\e916";
-}
-.icon-upload:before {
-  content: "\e901";
 }
 .icon-trash:before {
   content: "\e908";

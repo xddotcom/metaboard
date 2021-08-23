@@ -29,6 +29,9 @@
         <div class="toolbar__item toolbar__input"><input v-model="scale" @input="handleScaleChange"> <small>%</small></div>
         <div class="toolbar__item toolbar__btn" @click="() => handleScale(10)"><i class="icon-zoom-in"></i></div>
       </div>
+      <div class="toolbar__group">
+        <div class="toolbar__item toolbar__btn"><i class="icon-question"></i></div>
+      </div>
     </div>
     <!-- 预览 -->
     <Preview v-model="isShowPreview" @change="handlePreviewChange" />
@@ -209,30 +212,40 @@ export default {
 
 <style lang="scss" scoped>
 .toolbar {
-  height: 56px;
+  height: 50px;
   background: #fff;
-  border-bottom: 1px solid #ddd;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   font-size: 16px;
-  padding: 10px 15px;
+  padding: 8px 15px;
 }
 .toolbar__group {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   & + & {
-    margin-left: 20px;
+    margin-left: 2px;
   }
 }
-.toolbar__item + .toolbar__item {
-  margin-left: 20px;
+.toolbar__item {
+  border-radius: 4px;
+  margin-left: 2px;
+  &:hover {
+    background: #F0F0F0;
+  }
 }
 .toolbar__btn {
   font-size: 18px;
   cursor: pointer;
   line-height: 1;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .toolbar__input {
   input {

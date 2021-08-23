@@ -63,10 +63,7 @@ export default {
 }
 .toolbar-container {
   position: fixed;
-  right: 30px;
-  bottom: 30px;
-  background-color: #ffffff;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.02);
-  border-radius: 4px;
+  right: 8px;
+  bottom: 10px;
 }
 </style>

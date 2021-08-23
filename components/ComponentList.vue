@@ -74,6 +74,6 @@ export default {
   }
 }
 .icon__icon {
-  font-size: 24px;
+  font-size: 22px;
 }
 </style>
