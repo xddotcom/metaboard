@@ -22,7 +22,6 @@
       :class="{ lock: item.isLock }"
     >
       <component
-        v-if="item.component != 'v-text'"
         class="component"
         :is="item.component"
         :style="getComponentStyle(item.style)"
@@ -33,7 +32,7 @@
         :id="'component' + item.id"
       />
 
-      <component
+      <!-- <component
         v-else
         class="component"
         :is="item.component"
@@ -42,7 +41,7 @@
         @input="handleInput"
         :element="item"
         :id="'component' + item.id"
-      />
+      /> -->
     </Shape>
     <!-- 右击菜单 -->
     <ContextMenu />
@@ -113,7 +112,7 @@ export default {
     },
     handleMouseDown(e) {
       // 如果没有选中组件 在画布上点击时需要调用 e.preventDefault() 防止触发 drop 事件
-      if (!this.curComponent || (this.curComponent.component != 'v-text' && this.curComponent.component != 'rect-shape')) {
+      if (!this.curComponent || (this.curComponent.component != 'v-text' && this.curComponent.component != 'v-note' && this.curComponent.component != 'rect-shape')) {
         e.preventDefault()
       }
 

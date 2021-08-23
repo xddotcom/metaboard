@@ -65,6 +65,22 @@ const list = [
             width: 200,
             height: 22,
             fontSize: 14,
+        }
+    },
+    {
+        component: 'v-note',
+        label: '笔记(MD)',
+        propValue: '<h1>开始编辑 markdown</h1><p>hello, world</p>',
+        icon: 'bell',
+        style: {
+            width: 240,
+            height: 400,
+            fontSize: 14,
+            fontWeight: 400,
+            lineHeight: '',
+            letterSpacing: 0,
+            textAlign: '',
+            color: '',
         },
     },
     // {
