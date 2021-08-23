@@ -1,5 +1,5 @@
 <template>
-  <div class="v-picture">
+  <div class="v-upload">
     <img :src="propValue">
     <div v-if="!!pending" class="uploading"></div>
     <div v-else class="btn-upload">
@@ -53,7 +53,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.v-picture {
+.v-upload {
   position: relative;
   overflow: hidden;
 }

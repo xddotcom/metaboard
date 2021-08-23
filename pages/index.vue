@@ -109,12 +109,12 @@ export default {
    background: #fff;
    .sidebar {
       position: fixed;
-      top: 58px;
-      left: 0;
-      padding: 24px 8px;
-      bottom: 0;
+      top: 84px;
+      left: 8px;
       overflow: auto;
       background-color: #fff;
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.08);
+      border-radius: 4px;
       &::-webkit-scrollbar {
          width: 0;
       }

@@ -70,7 +70,7 @@ export default {
     background: #F0F0F0;
   }
   & + & {
-    margin-top: 6px;
+    margin-top: 2px;
   }
 }
 .icon__icon {

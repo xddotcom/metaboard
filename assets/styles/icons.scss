@@ -25,6 +25,15 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-sparks:before {
+  content: "\e90c";
+}
+.icon-window:before {
+  content: "\e918";
+}
+.icon-search:before {
+  content: "\e917";
+}
 .icon-color:before {
   content: "\e90f";
 }
@@ -82,9 +91,6 @@
 .icon-question:before {
   content: "\e90b";
 }
-.icon-search:before {
-  content: "\e90c";
-}
 .icon-style:before {
   content: "\e90d";
 }
@@ -94,3 +100,4 @@
 .icon-zoom-out:before {
   content: "\e911";
 }
+
