@@ -58,7 +58,7 @@ export default {
         },
 
         paste() {
-            this.$store.commit('paste', true)
+            this.$store.commit('paste', { isMouse: true })
             this.$store.commit('recordSnapshot')
         },
 
