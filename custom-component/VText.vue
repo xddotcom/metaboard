@@ -29,7 +29,8 @@ export default {
   data() {
     return {
       canEdit: false,
-      ctrlKey: 17,
+      // ctrlKey: 17,
+      ctrlKey: navigator.platform.toUpperCase().indexOf('MAC') >= 0 ? 91 : 17,
       isCtrlDown: false,
       cachedElement: {}
     }
