@@ -128,4 +128,32 @@ export const availableComponents = [
     },
     ...commonAttr,
   },
+  {
+    component: 'v-picture',
+    name: 'picture',
+    label: '上传',
+    icon: 'icon-upload',
+    propValue: require('@/assets/title.jpg'),
+    style: {
+      ...commonStyle,
+      width: 300,
+      height: 200,
+      borderRadius: '',
+    },
+    ...commonAttr,
+  },
+  {
+    component: 'v-iframe',
+    name: 'iframe',
+    label: '内嵌窗口',
+    icon: 'icon-window',
+    propValue: 'https://uirush.net/',
+    style: {
+      ...commonStyle,
+      width: 375,
+      height: 640,
+      borderRadius: ''
+    },
+    ...commonAttr,
+  },
 ]

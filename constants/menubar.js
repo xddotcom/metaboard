@@ -7,6 +7,12 @@ export const getChildrenByKind = (kind) => {
   })
 }
 
+export const getExactComponentByName = (name) => {
+  return availableComponents.find((comp) => {
+    return comp.name === name
+  })
+}
+
 export const MENU_BAR_ITEMS = [
   {
     label: '模板',
@@ -42,5 +48,28 @@ export const MENU_BAR_ITEMS = [
     icon: 'icon-shape',
     component: null,
     children: getChildrenByKind('shapes')
+  },
+  {
+    label: '看板',
+    name: 'board',
+    icon: 'icon-board',
+    component: null,
+    children: []
+  },
+  {
+    label: '竖栏',
+    name: 'column',
+    icon: 'icon-column',
+    component: null,
+    children: []
+  },
+  getExactComponentByName('picture'),
+  getExactComponentByName('iframe'),
+  {
+    label: '评论',
+    name: 'comment',
+    icon: 'icon-comment',
+    component: null,
+    children: []
   }
 ]

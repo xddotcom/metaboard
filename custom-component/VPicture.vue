@@ -20,6 +20,7 @@
 import { toBase64 } from '@/utils/image'
 
 export default {
+  name: 'VPicture',
   props: {
     propValue: {
       type: String,
