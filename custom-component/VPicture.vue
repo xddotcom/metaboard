@@ -16,8 +16,7 @@
 </template>
 
 <script>
-
-import { toBase64 } from '@/utils/image'
+import { toBase64, getImageSize } from '@/utils/image'
 
 export default {
   name: 'VPicture',
@@ -43,9 +42,20 @@ export default {
       const file = e.target.files[0]
       this.pending = true
       const imgSrc = await toBase64(file)
+      let { width, height } = await getImageSize(imgSrc)
+      if (width && height) {
+        const scaleRatio = Math.max(width / 300, height / 200)
+        width = width / scaleRatio
+        height = height / scaleRatio
+      }
       this.$store.commit('updateComponentData', {
         ...this.element,
-        propValue: imgSrc
+        propValue: imgSrc,
+        style: {
+          ...this.element.style,
+          width,
+          height
+        }
       })
       this.pending = false
     }
@@ -89,7 +99,7 @@ i.el-icon-plus {
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: orange;
+  background-color: #e0e0e0;
   cursor: pointer;
   color: white;
   display: flex;

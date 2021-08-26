@@ -1,8 +1,24 @@
 export const toBase64 = file => new Promise((resolve, reject) => {
   const reader = new FileReader()
   reader.readAsDataURL(file)
-  reader.onload = () => resolve(reader.result)
+  reader.onload = (e) => {
+    resolve(reader.result)
+  }
   reader.onerror = error => reject(error)
+})
+
+export const getImageSize = src => new Promise((resolve, reject) => {
+  const image = new Image()
+  image.src = src
+  image.onload = function () {
+    var height = this.height
+    var width = this.width
+    resolve({ height, width })
+    return true
+  }
+  image.onerror = () => {
+    resolve({})
+  }
 })
 
 export const pasteFromClipboard = (clipboardData = {}) => {

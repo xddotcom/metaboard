@@ -11,7 +11,7 @@
         width="264"
         popper-class="image-search-popover"
         trigger="click">
-        <image-search />
+        <image-search @select="handleSelectImageItem"/>
         <el-tooltip effect="dark" :content="item.label" placement="right" slot="reference">
           <i class="icon__icon" :class="item.icon" @click="() => onClick(item)"></i>
         </el-tooltip>
@@ -70,8 +70,12 @@
 
 <script>
 import { commonStyle, commonAttr, MENU_BAR_ITEMS } from '@/constants/menubar'
+import { availableComponents } from '@/constants/component-list'
 import ImageSearch from '@/components/ImageSearch'
 import TemplateDialog from '@/components/dialogs/TemplateDialog'
+import generateID from '@/utils/generateID'
+import { getImageSize } from '@/utils/image'
+import { deepCopy } from '@/utils/utils'
 
 export default {
   name: 'MenuBar',
@@ -103,6 +107,22 @@ export default {
     },
     showTemplateDialog() {
       this.templateDialogVisible = true
+    },
+    async handleSelectImageItem(imateItem) {
+      const pictureDefaultData = availableComponents.find(item => item.name === 'picture')
+      const component = deepCopy(pictureDefaultData)
+      component.propValue = imateItem.src
+      component.style.top = 80
+      component.style.left = 80
+      component.id = generateID()
+      const { width, height } = await getImageSize(imateItem.src)
+      if (width && height) {
+        const scaleRatio = Math.max(width / 300, height / 200)
+        component.style.width = width / scaleRatio
+        component.style.height = height / scaleRatio
+      }
+      this.$store.commit('addComponent', { component })
+      this.$store.commit('recordSnapshot')
     }
   },
 }
