@@ -8,7 +8,7 @@
       <el-popover
         v-if="item.name === 'search'"
         placement="right"
-        width="400"
+        width="264"
         trigger="hover">
         <image-search />
         <el-tooltip effect="dark" :content="item.label" placement="right" slot="reference">

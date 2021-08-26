@@ -43,7 +43,6 @@ export default {
         this.$emit('input', editor.getHTML())
       },
       onBlur: () => {
-        console.log('@@@blur')
         this.$emit('blur')
       },
     })

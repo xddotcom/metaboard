@@ -4,7 +4,7 @@
       <input type="textarea" name="" placeholder="搜索" class="search-input">
     </form>
     <div class="content">
-      <div class="card-item" v-for="image in images">
+      <div class="card-item" v-for="image in images" :key="image.title">
         <div
           class="card-image"
           :style="{'backgroundImage':`url(${image.src})`}"
@@ -54,8 +54,8 @@ export default {
   width: 264px;
   height: 512px;
   overflow: scroll;
-  border-radius: 4px;
-  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.08);
+  // border-radius: 4px;
+  // box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.08);
   .search {
     background: #F3F3F3;
     border: 1px solid #EAEAEB;
