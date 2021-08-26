@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="header">
-      <el-form>
+      <el-form @submit.native.prevent="onSubmit">
         <el-form-item style="margin: 0 auto;">
           <el-input
             placeholder="搜索"
@@ -94,6 +94,7 @@ export default {
       this.fetchList()
       this.showSearchResult = true
     },
+    onSubmit() {},
     fetchList() {},
     onSelectItem(imageItem) {
       this.$emit('select', imageItem)
