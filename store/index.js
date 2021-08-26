@@ -63,6 +63,11 @@ export default {
             state.curComponentIndex = index
         },
 
+        resetCurComponent(state) {
+            state.curComponent = null
+            state.curComponentIndex = null
+        },
+
         setShapeStyle({ curComponent }, { top, left, width, height, rotate }) {
             if (top) curComponent.style.top = top
             if (left) curComponent.style.left = left
