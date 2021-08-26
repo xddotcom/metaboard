@@ -1,5 +1,8 @@
 <template>
-  <div class="shape" :class="{ active }" @click="selectCurComponent" @mousedown="handleMouseDownOnShape">
+  <div v-if="disableResize" class="shape" :class="{ active }" @click="selectCurComponent" @mousedown="handleMouseDownOnShape">
+    <slot></slot>
+  </div>
+  <div v-else class="shape" :class="{ active }" @click="selectCurComponent" @mousedown="handleMouseDownOnShape">
     <span class="iconfont icon-xiangyouxuanzhuan" v-show="isActive" @mousedown="handleRotate"></span>
     <span class="iconfont icon-suo" v-show="element.isLock"></span>
     <div
@@ -39,6 +42,10 @@ export default {
       require: true,
       type: [Number, String],
     },
+    disableResize: {
+      type: Boolean,
+      default: false
+    }
   },
   data() {
     return {
@@ -202,7 +209,9 @@ export default {
       if (this.element.component != 'v-text' &&
         this.element.component != 'rect-shape' &&
         this.element.component != 'v-note' &&
-        this.element.component != 'v-iframe') {
+        this.element.component != 'v-iframe' &&
+        this.element.component != 'v-link'
+        ) {
         e.preventDefault()
       }
 

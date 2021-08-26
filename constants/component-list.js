@@ -37,12 +37,18 @@ export const availableComponents = [
     kind: 'components',
     name: 'v-link',
     icon: 'icon-link',
-    propValue: '',
+    propValue: {
+      url: '',
+      title: '',
+      image: '',
+      favicon: '',
+      description: ''
+    },
     component: 'v-link',
     style: {
       ...commonStyle,
-      width: 180,
-      height: 180,
+      width: 300,
+      height: 60,
     },
     ...commonAttr
   },
@@ -94,7 +100,7 @@ export const availableComponents = [
   {
     label: 'Arrow',
     kind: 'shapes',
-    name: 'arrow',
+    name: 'shapes',
     icon: 'icon-arrow-line',
     propValue: '',
     component: '',

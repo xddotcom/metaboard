@@ -12,37 +12,40 @@
     <Grid />
 
     <!--页面组件列表展示-->
-    <Shape v-for="(item, index) in componentData"
-      :defaultStyle="item.style"
-      :style="getShapeStyle(item.style)"
-      :key="item.id"
-      :active="curComponent && item.id === curComponent.id"
-      :element="item"
-      :index="index"
-      :class="{ lock: item.isLock }"
-    >
-      <component
-        class="component"
-        :is="item.component"
-        :style="getComponentStyle(item.style)"
+    <div v-for="(item, index) in componentData" :key="item.id">
+      <Shape
+        :defaultStyle="item.style"
+        :style="getShapeStyle(item.style)"
         :active="curComponent && item.id === curComponent.id"
-        :propValue="item.propValue"
         :element="item"
-        @input="handleInput"
-        :id="'component' + item.id"
-      />
+        :index="index"
+        :class="{ lock: item.isLock }"
+        :disable-resize="item.name === 'v-link'"
+      >
+        <component
+          class="component"
+          :is="item.component"
+          :style="getComponentStyle(item.style)"
+          :active="curComponent && item.id === curComponent.id"
+          :propValue="item.propValue"
+          :element="item"
+          @input="handleInput"
+          :id="'component' + item.id"
+        />
 
-      <!-- <component
-        v-else
-        class="component"
-        :is="item.component"
-        :style="getComponentStyle(item.style)"
-        :propValue="item.propValue"
-        @input="handleInput"
-        :element="item"
-        :id="'component' + item.id"
-      /> -->
-    </Shape>
+        <!-- <component
+          v-else
+          class="component"
+          :is="item.component"
+          :style="getComponentStyle(item.style)"
+          :propValue="item.propValue"
+          @input="handleInput"
+          :element="item"
+          :id="'component' + item.id"
+        /> -->
+      </Shape>
+    </div>
+
     <!-- 右击菜单 -->
     <ContextMenu />
     <!-- 标线 -->

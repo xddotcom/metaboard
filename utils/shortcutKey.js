@@ -65,13 +65,14 @@ export function listenGlobalKeyDown() {
       dangerousStore.store.commit('deleteComponent')
       dangerousStore.store.commit('recordSnapshot')
     } else if (isCtrlDown) {
-      if (!curComponent || !curComponent.isLock) {
-        e.preventDefault()
-        unlockMap[e.keyCode] && unlockMap[e.keyCode](e)
-      } else if (curComponent && curComponent.isLock) {
-        e.preventDefault()
-        lockMap[e.keyCode] && lockMap[e.keyCode](e)
-      }
+      // debugger
+      // if (!curComponent || !curComponent.isLock) {
+      //   e.preventDefault()
+      //   unlockMap[e.keyCode] && unlockMap[e.keyCode](e)
+      // } else if (curComponent && curComponent.isLock) {
+      //   e.preventDefault()
+      //   lockMap[e.keyCode] && lockMap[e.keyCode](e)
+      // }
     }
   }
 

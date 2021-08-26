@@ -19,6 +19,7 @@ import VText from '@/custom-component/VText'
 import VNote from '@/custom-component/VNote'
 import VButton from '@/custom-component/VButton'
 import VIframe from '@/custom-component/VIframe'
+import VLink from '@/custom-component/VLink'
 import Group from '@/custom-component/Group'
 import RectShape from '@/custom-component/RectShape'
 
@@ -30,3 +31,4 @@ Vue.component('v-button', VButton)
 Vue.component('v-color', VColor)
 Vue.component('group', Group)
 Vue.component('rect-shape', RectShape)
+Vue.component('v-link', VLink)
