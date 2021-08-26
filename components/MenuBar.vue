@@ -1,5 +1,5 @@
 <template>
-  <div class="meun-bar" @dragstart="handleDragStart">
+  <div class="meun-bar">
     <div
       v-for="item in MENU_BAR_ITEMS"
       :key="item.name"
@@ -9,6 +9,7 @@
         v-if="item.name === 'search'"
         placement="right"
         width="264"
+        popper-class="image-search-popover"
         trigger="click">
         <image-search />
         <el-tooltip effect="dark" :content="item.label" placement="right" slot="reference">
@@ -21,7 +22,7 @@
         placement="right"
         width="120"
         trigger="click">
-        <div class="children-container">
+        <div class="children-container" @dragstart="handleDragStart">
           <div
             v-for="child in item.children"
             :key="child.name"
@@ -41,15 +42,16 @@
         </el-tooltip>
       </el-popover>
 
-      <el-tooltip
-        v-else-if="item.component"
-        effect="dark"
-        placement="right"
-        :content="item.label"
-        draggable
-        :data-component="JSON.stringify(item)">
-          <i class="icon__icon" :class="item.icon" @click="() => onClick(item)"></i>123
-        </el-tooltip>
+      <div v-else-if="item.component" @dragstart="handleDragStart">
+        <el-tooltip
+          effect="dark"
+          placement="right"
+          :content="item.label"
+          draggable
+          :data-component="JSON.stringify(item)">
+            <i class="icon__icon" :class="item.icon" @click="() => onClick(item)"></i>123
+          </el-tooltip>
+      </div>
 
       <el-tooltip
         v-else

@@ -28,13 +28,13 @@ export const MENU_BAR_ITEMS = [
     component: null,
     children: []
   },
-  {
-    label: '元素',
-    name: 'sparks',
-    icon: 'icon-sparks',
-    component: null,
-    children: []
-  },
+  // {
+  //   label: '元素',
+  //   name: 'sparks',
+  //   icon: 'icon-sparks',
+  //   component: null,
+  //   children: []
+  // },
   {
     label: '组件',
     name: 'components',
