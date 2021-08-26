@@ -6,7 +6,6 @@
         ref="mdEditor"
         :style="cachedElement.style"
         v-model="cachedElement.propValue"
-        @blur="handleBlur"
         @input="handleInput"
       />
     </client-only>
@@ -70,6 +69,8 @@ export default {
         e.stopPropagation()
       } else if (e.keyCode === 8 && this.canEdit) {
         e.stopPropagation()
+      } else if (e.keyCode === 27) { // Esc
+        this.handleExitEditMode()
       }
     },
 
@@ -86,13 +87,6 @@ export default {
         propValue: content
       })
     },
-    handleBlur() {
-      this.cachedElement.propValue = this.cachedElement.propValue || '<br>'
-      this.canEdit = false
-      if (!this.editor) return
-      this.editor.setEditable(false)
-      this.editor.chain().blur().run()
-    },
     setEdit(e) {
       if (this.element.isLock || !this.$refs.mdEditor || this.canEdit) {
         e.stopPropagation()
@@ -102,6 +96,12 @@ export default {
       if (!this.editor) return
       this.editor.setEditable(true)
       this.editor.chain().focus().run()
+    },
+    handleExitEditMode() {
+      this.cachedElement.propValue = this.cachedElement.propValue || '<br>'
+      this.canEdit = false
+      if (!this.editor) return
+      this.editor.setEditable(false)
     }
   },
 }
