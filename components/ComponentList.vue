@@ -22,7 +22,6 @@ export default {
       e.dataTransfer.setData('index', e.target.dataset.index)
     },
     onClick(item) {
-      console.log(item)
       if (item.component === 'v-add') {
         this.$store.commit('toggleImageSearch')
       }

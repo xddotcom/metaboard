@@ -1,7 +1,7 @@
 <template>
    <div class="home">
       <div class="sidebar">
-         <component-list />
+         <menu-bar />
       </div>
       <main>
       <!-- 中间画布 -->
@@ -17,6 +17,7 @@
 
 <script>
 import io from 'socket.io-client'
+import MenuBar from '@/components/MenuBar'
 import Editor from '@/components/Editor/index'
 import ComponentList from '@/components/ComponentList' // 左侧列表组件
 import AttrList from '@/components/AttrList' // 右侧属性列表
@@ -29,7 +30,14 @@ import generateID from '@/utils/generateID'
 import { listenGlobalKeyDown } from '@/utils/shortcutKey'
 
 export default {
-   components: { Editor, ComponentList, AttrList, AnimationList, EventList },
+   components: {
+      MenuBar,
+      Editor,
+      ComponentList,
+      AttrList,
+      AnimationList,
+      EventList
+   },
    data() {
       return {
          activeName: 'attr',
@@ -71,7 +79,18 @@ export default {
          e.preventDefault()
          e.stopPropagation()
          const index = e.dataTransfer.getData('index')
-         if (index) {
+         let componentData = e.dataTransfer.getData('component')
+         if (componentData) {
+            componentData = JSON.parse(componentData)
+         }
+         if (typeof componentData === 'object' && componentData.name) {
+            const component = deepCopy(componentData)
+            component.style.top = e.offsetY
+            component.style.left = e.offsetX
+            component.id = generateID()
+            this.$store.commit('addComponent', { component })
+            this.$store.commit('recordSnapshot')
+         } else if (index) {
             const component = deepCopy(componentList[index])
             component.style.top = e.offsetY
             component.style.left = e.offsetX
