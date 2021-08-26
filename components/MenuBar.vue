@@ -9,7 +9,7 @@
         v-if="item.name === 'search'"
         placement="right"
         width="264"
-        trigger="hover">
+        trigger="click">
         <image-search />
         <el-tooltip effect="dark" :content="item.label" placement="right" slot="reference">
           <i class="icon__icon" :class="item.icon" @click="() => onClick(item)"></i>
@@ -20,7 +20,7 @@
         v-else-if="item.children && item.children.length"
         placement="right"
         width="120"
-        trigger="hover">
+        trigger="click">
         <div class="children-container" @dragstart="handleDragStart">
           <div
             v-for="child in item.children"
@@ -47,21 +47,28 @@
           <i class="icon__icon" :class="item.icon" @click="() => onClick(item)"></i>
         </el-tooltip>
     </div>
+    <template-dialog
+      v-if="templateDialogVisible"
+      :visible.sync="templateDialogVisible"
+    />
   </div>
 </template>
 
 <script>
 import { commonStyle, commonAttr, MENU_BAR_ITEMS } from '@/constants/menubar'
 import ImageSearch from '@/components/ImageSearch'
+import TemplateDialog from '@/components/dialogs/TemplateDialog'
 
 export default {
   name: 'MenuBar',
   components: {
-    ImageSearch
+    ImageSearch,
+    TemplateDialog
   },
   data() {
     return {
-      MENU_BAR_ITEMS
+      MENU_BAR_ITEMS,
+      templateDialogVisible: false
     }
   },
   methods: {
@@ -71,11 +78,17 @@ export default {
       e.dataTransfer.setData('component', componentData)
     },
     onClick(item) {
-      if (item.component === 'v-add') {
-        this.$store.commit('toggleImageSearch')
-      } else {
-        console.log(item)
+      console.log(item.name)
+      switch (item.name) {
+        case 'template':
+          this.showTemplateDialog()
+          break
+        default:
+          break
       }
+    },
+    showTemplateDialog() {
+      this.templateDialogVisible = true
     }
   },
 }
@@ -125,6 +138,10 @@ export default {
 }
 .icon__icon {
   font-size: 22px;
+  cursor: pointer;
+}
+.child-item .icon__icon {
+  cursor: move;
 }
 .children-container {
   display: flex;
