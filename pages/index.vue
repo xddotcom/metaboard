@@ -134,14 +134,15 @@ export default {
       background-color: #fff;
       box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.08);
       border-radius: 4px;
+      z-index: 100;
       &::-webkit-scrollbar {
          width: 0;
       }
    }
    main {
       height: calc(100vh - 60px);
-      margin-left: 72px;
-      width: calc(100% - 72px);
+      // margin-left: 72px;
+      width: 100%;
       position: relative;
 
       .left {

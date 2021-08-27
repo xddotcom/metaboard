@@ -9,7 +9,7 @@
     @mousedown="handleMouseDown"
   >
     <!-- 网格线 -->
-    <Grid />
+    <!-- <Grid /> -->
 
     <!--页面组件列表展示-->
     <div v-for="(item, index) in componentData" :key="item.id">
@@ -319,10 +319,9 @@ export default {
   margin: auto;
   width: 100%;
   position: 100%;
-
+  background-color: #F5F5F5;
   .lock {
     opacity: .5;
-
     &:hover {
       cursor: not-allowed;
     }
