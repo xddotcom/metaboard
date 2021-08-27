@@ -24,12 +24,12 @@
       <div class="main">
         <el-row :gutter="10">
           <el-col
-            v-for="item in itemList" :key="item"
+            v-for="item in itemList" :key="item.title"
             :xs="12" :sm="12" :md="8" :lg="8" :xl="8">
             <div class="item">
-              <div class="item__cover"></div>
+              <div class="item__cover" :style="getCardStyle(item)"></div>
               <div class="item__caption">
-                <div class="item__title">{{ item }}</div>
+                <div class="item__title">{{ item.title }}</div>
                 <div class="item__acti"><i class="el-icon-plus"></i></div>
               </div>
             </div>
@@ -58,15 +58,24 @@ export default {
         '插画/游戏', '电影/电视', '创业/项目', '会议/工作坊', '小说/剧本'
       ],
       itemList: [
-        '海报 Poster',
-        '插画 Illustration',
-        '网站设计 Wesite Design',
-        '应用设计 App Design',
-        '时装 Fashion',
+        { title: '海报 Poster', image: 'https://up.img.heidiancdn.com/o_1fe33psaqs251jn311lg7mk1bfs0Poster.jpg' },
+        { title: '摄影 Photography', image: 'https://up.img.heidiancdn.com/o_1fe33psb1ehip771ag123dhn80graphy.jpg'},
+        { title: '视觉识别 VI Design', image: 'https://up.img.heidiancdn.com/o_1fe33psb21dcq15ptfn7jtpohj0Design.jpg'},
+        { title: '插画 Illustration', image: 'https://up.img.heidiancdn.com/o_1fe33psb51l7f1e4h3cp1kkgtr20ration.jpg'},
+        { title: '室内设计 Interior Design', image: 'https://up.img.heidiancdn.com/o_1fe33psb612njsd214531r2dgf90Design.jpg'},
+        { title: '电影配色 Film Color', image: 'https://up.img.heidiancdn.com/o_1fe33psb81u4a10hua9n158d10fp0mColor.jpg'},
+        { title: '时尚 Fashion', image: 'https://up.img.heidiancdn.com/o_1fe33psb91kip3kpq78lneetj007.jpg'},
+        { title: '品牌', image: 'https://up.img.heidiancdn.com/o_1fe33psbaqe71a3cof0n5pite008.jpg'},
+        { title: '网页', image: 'https://up.img.heidiancdn.com/o_1fe33psbbli81n1l1cmm1pamm4c009.jpg'},
       ]
     }
   },
   methods: {
+    getCardStyle(item) {
+      return {
+        backgroundImage: `url(${item.image})`
+      }
+    },
     async onDialogOpen() {
       this.$emit('open')
       this.$emit('update:visible', true)
