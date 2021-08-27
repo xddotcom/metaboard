@@ -42,7 +42,8 @@ export const availableComponents = [
       title: '',
       image: '',
       favicon: '',
-      description: ''
+      description: '',
+      themeColor: ''
     },
     component: 'v-link',
     style: {

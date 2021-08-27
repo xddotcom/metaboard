@@ -52,8 +52,12 @@ export default {
     image() {
       return this.cachedElement && this.cachedElement.propValue && this.cachedElement.propValue.image
     },
+    themeColor() {
+      return this.cachedElement && this.cachedElement.propValue && this.cachedElement.propValue.themeColor
+    },
     coverStyle() {
       return {
+        backgroundColor: this.themeColor,
         backgroundImage: `url(${this.image})`
       }
     },
@@ -74,13 +78,14 @@ export default {
             }
           })
           const { metadata, favicons, socials } = res.data
-          const { title, description, image } = metadata
+          const { title, description, image, themeColor } = metadata
           const favicon = favicons && favicons.length ? favicons[0] : ''
 
           this.cachedElement.propValue.title = title || ''
           this.cachedElement.propValue.favicon = favicon
           this.cachedElement.propValue.description = description || ''
           this.cachedElement.propValue.image = image || ''
+          this.cachedElement.propValue.themeColor = themeColor || ''
         } catch (error) {
 
         }
