@@ -64,6 +64,7 @@
     <template-dialog
       v-if="templateDialogVisible"
       :visible.sync="templateDialogVisible"
+      @select="onSelectTemplate"
     />
   </div>
 </template>
@@ -76,6 +77,7 @@ import TemplateDialog from '@/components/dialogs/TemplateDialog'
 import generateID from '@/utils/generateID'
 import { getImageSize } from '@/utils/image'
 import { deepCopy } from '@/utils/utils'
+import { template_data } from '@/constants/templates'
 
 export default {
   name: 'MenuBar',
@@ -123,6 +125,12 @@ export default {
       }
       this.$store.commit('addComponent', { component })
       this.$store.commit('recordSnapshot')
+    },
+    onSelectTemplate(name) {
+      const templateData = template_data.find(item => item.name === name)
+      const { data = [] } = templateData
+      this.$store.commit('setComponentData', deepCopy(data))
+      this.templateDialogVisible = false
     }
   },
 }

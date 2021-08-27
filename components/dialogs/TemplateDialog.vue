@@ -30,7 +30,7 @@
               <div class="item__cover" :style="getCardStyle(item)"></div>
               <div class="item__caption">
                 <div class="item__title">{{ item.title }}</div>
-                <div class="item__acti"><i class="el-icon-plus"></i></div>
+                <div class="item__action"><i class="el-icon-plus" @click="() => onSelect(item.templateName)"></i></div>
               </div>
             </div>
           </el-col>
@@ -58,15 +58,15 @@ export default {
         '插画/游戏', '电影/电视', '创业/项目', '会议/工作坊', '小说/剧本'
       ],
       itemList: [
-        { title: '海报 Poster', image: 'https://up.img.heidiancdn.com/o_1fe33psaqs251jn311lg7mk1bfs0Poster.jpg' },
-        { title: '摄影 Photography', image: 'https://up.img.heidiancdn.com/o_1fe33psb1ehip771ag123dhn80graphy.jpg'},
-        { title: '视觉识别 VI Design', image: 'https://up.img.heidiancdn.com/o_1fe33psb21dcq15ptfn7jtpohj0Design.jpg'},
-        { title: '插画 Illustration', image: 'https://up.img.heidiancdn.com/o_1fe33psb51l7f1e4h3cp1kkgtr20ration.jpg'},
-        { title: '室内设计 Interior Design', image: 'https://up.img.heidiancdn.com/o_1fe33psb612njsd214531r2dgf90Design.jpg'},
-        { title: '电影配色 Film Color', image: 'https://up.img.heidiancdn.com/o_1fe33psb81u4a10hua9n158d10fp0mColor.jpg'},
-        { title: '时尚 Fashion', image: 'https://up.img.heidiancdn.com/o_1fe33psb91kip3kpq78lneetj007.jpg'},
-        { title: '品牌', image: 'https://up.img.heidiancdn.com/o_1fe33psbaqe71a3cof0n5pite008.jpg'},
-        { title: '网页', image: 'https://up.img.heidiancdn.com/o_1fe33psbbli81n1l1cmm1pamm4c009.jpg'},
+        { templateName: 'a', title: '海报 Poster', image: 'https://up.img.heidiancdn.com/o_1fe33psaqs251jn311lg7mk1bfs0Poster.jpg' },
+        { templateName: 'b', title: '摄影 Photography', image: 'https://up.img.heidiancdn.com/o_1fe33psb1ehip771ag123dhn80graphy.jpg'},
+        { templateName: 'c', title: '视觉识别 VI Design', image: 'https://up.img.heidiancdn.com/o_1fe33psb21dcq15ptfn7jtpohj0Design.jpg'},
+        { templateName: 'd', title: '插画 Illustration', image: 'https://up.img.heidiancdn.com/o_1fe33psb51l7f1e4h3cp1kkgtr20ration.jpg'},
+        { templateName: 'e', title: '室内设计 Interior Design', image: 'https://up.img.heidiancdn.com/o_1fe33psb612njsd214531r2dgf90Design.jpg'},
+        { templateName: 'f', title: '电影配色 Film Color', image: 'https://up.img.heidiancdn.com/o_1fe33psb81u4a10hua9n158d10fp0mColor.jpg'},
+        { templateName: 'g', title: '时尚 Fashion', image: 'https://up.img.heidiancdn.com/o_1fe33psb91kip3kpq78lneetj007.jpg'},
+        { templateName: 'h', title: '品牌', image: 'https://up.img.heidiancdn.com/o_1fe33psbaqe71a3cof0n5pite008.jpg'},
+        { templateName: 'i', title: '网页', image: 'https://up.img.heidiancdn.com/o_1fe33psbbli81n1l1cmm1pamm4c009.jpg'},
       ]
     }
   },
@@ -84,6 +84,9 @@ export default {
       this.$emit('close')
       this.$emit('update:visible', false)
     },
+    onSelect(name) {
+      this.$emit('select', name)
+    }
   },
 }
 </script>
@@ -146,6 +149,9 @@ export default {
   padding: 0 8px;
   font-weight: normal;
   border-top: 1px solid;
+}
+.item__action {
+  cursor: pointer;
 }
 </style>
 
