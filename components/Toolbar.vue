@@ -31,6 +31,7 @@
       </div>
       <div class="toolbar__group">
         <div class="toolbar__item toolbar__btn"><i class="icon-question"></i></div>
+        <div class="toolbar__item toolbar__btn" @click="exportBoardData"><i class="el-icon-s-promotion"></i></div>
       </div>
     </div>
     <!-- 预览 -->
@@ -206,6 +207,10 @@ export default {
     handlePreviewChange() {
       this.$store.commit('setEditMode', 'edit')
     },
+    exportBoardData () {
+      console.log('@@@@ 当前board数据为：')
+      console.log(JSON.stringify(this.componentData))
+    }
   },
 }
 </script>
