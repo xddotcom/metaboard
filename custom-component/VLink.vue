@@ -77,10 +77,7 @@ export default {
               url: encodeURIComponent(url)
             }
           })
-          const { metadata, favicons, socials } = res.data
-          const { title, description, image, themeColor } = metadata
-          const favicon = favicons && favicons.length ? favicons[0] : ''
-
+          const { title, description, image, favicon } = res.data
           this.cachedElement.propValue.title = title || ''
           this.cachedElement.propValue.favicon = favicon
           this.cachedElement.propValue.description = description || ''
