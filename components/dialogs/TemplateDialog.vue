@@ -85,7 +85,13 @@ export default {
       this.$emit('update:visible', false)
     },
     onSelect(name) {
-      this.$emit('select', name)
+      this.$confirm('选择模版后会覆盖当前版面内容，要继续吗？', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
+        this.$emit('select', name)
+      }).catch(() => {})
     }
   },
 }
