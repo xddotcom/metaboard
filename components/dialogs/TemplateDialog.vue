@@ -1,6 +1,6 @@
 <template>
   <el-dialog
-    width="800px"
+    width="1000px"
     top="10vh"
     :fullscreen="false"
     :append-to-body="true"
@@ -140,6 +140,9 @@ export default {
   width: 100%;
   padding-top: percentage(15/22);
   background-color: #F5F5F5;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 .item__caption {
   height: 36px;
